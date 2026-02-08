@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday Dad ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+margin:0;
+font-family:'Segoe UI',sans-serif;
+background:url('bg.jpg') center center no-repeat fixed;
+background-size:contain;
+background-color:black;
+color:white;
+overflow:hidden;
+}
+@media (max-width:768px){
+body{
+background-size:contain;
+background-position:center top;
+}
+}
+
+.overlay{
+position:fixed;
+top:0;left:0;right:0;bottom:0;
+background:rgba(0,0,0,0.7);
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+flex-direction:column;
+padding:20px;
+animation:fadeIn 2s;
+}
+
+.message{
+font-size:28px;
+font-weight:bold;
+line-height:1.6;
+}
+
+.gift{
+margin-top:40px;
+width:170px;height:170px;
+background:#e63946;
+border-radius:15px;
+position:relative;
+animation:bounce 1.5s infinite;
+}
+
+.gift:before{
+content:'🎁';
+font-size:120px;
+position:absolute;
+top:50%;left:50%;
+transform:translate(-50%,-50%);
+}
+
+@keyframes bounce{
+0%,100%{transform:translateY(0)}
+50%{transform:translateY(-15px)}
+}
+
+.slideshow{
+display:none;
+position:fixed;
+top:0;left:0;right:0;bottom:0;
+background:black;
+align-items:center;
+justify-content:center;
+flex-direction:column;
+}
+
+.slide{display:none;text-align:center;animation:fade 2s;}
+.slide img{
+max-width:90vw;
+max-height:70vh;
+border-radius:15px;
+box-shadow:0 0 40px rgba(255,255,255,0.4);
+}
+
+.caption{
+margin-top:20px;
+font-size:30px;
+color:#ffd166;
+}
+
+.final{
+display:none;
+position:fixed;
+top:0;left:0;right:0;bottom:0;
+background:black;
+align-items:center;
+justify-content:center;
+flex-direction:column;
+text-align:center;
+animation:fadeIn 2s;
+}
+
+.biglove{
+font-size:70px;
+color:#ff4d6d;
+animation:pulse 1.5s infinite;
+}
+
+.family{
+margin-top:30px;
+font-size:32px;
+letter-spacing:3px;
+}
+
+@keyframes pulse{
+0%,100%{transform:scale(1)}
+50%{transform:scale(1.15)}
+}
+
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+</style>
+</head>
+
+<body>
+
+<div class="overlay" id="welcome">
+<div class="message">
+ON BEHALF OF THE CHIROMA/WALI FAMILY,<br>
+WE WISH YOU A VERY BELATED HAPPY BIRTHDAY 🎉❤️<br><br>
+WISHING YOU LONG LIFE, GOOD HEALTH AND PROSPERITY
+</div>
+<div class="gift"></div>
+<p>(Your gift is opening...)</p>
+</div>
+
+<div class="slideshow" id="show">
+
+<div class="slide">
+<img src="pic1.jpg">
+<div class="caption">
+We may not always say it…<br>
+but we see your sacrifices every single day ❤️
+</div>
+</div>
+
+<div class="slide">
+<img src="pic2.jpg">
+<div class="caption">
+If we search the whole world, we cannot replace you 🌍<br>
+Allah ya saka maka da Aljannatul Firdaus 🤲
+</div>
+</div>
+
+<div class="slide">
+<img src="pic3.jpg">
+<div class="caption">
+WE ARE PROUD TO BE YOUR CHILDREN 👑
+</div>
+</div>
+
+</div>
+
+<div class="final" id="final">
+<div class="biglove">WE LOVE YOU DAD ❤️</div>
+<div class="family">CHIROMA/WALI FAMILY</div>
+</div>
+
+<script>
+setTimeout(openGift,7000);
+
+function openGift(){
+document.getElementById('welcome').style.display='none';
+document.getElementById('show').style.display='flex';
+startSlides();
+}
+
+let index=0;
+function startSlides(){
+let slides=document.getElementsByClassName("slide");
+for(let i=0;i<slides.length;i++)
+slides[i].style.display="none";
+
+index++;
+if(index>slides.length){
+document.getElementById('show').style.display='none';
+document.getElementById('final').style.display='flex';
+return;
+}
+
+slides[index-1].style.display="block";
+setTimeout(startSlides,5000);
+}
+</script>
+
+</body>
+</html>
